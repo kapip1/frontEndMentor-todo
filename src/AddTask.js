@@ -1,43 +1,65 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import styled from "styled-components";
+import styled from 'styled-components';
+
+import { CheckBoxInput, CheckBoxLabel, CheckBoxMark } from './CheckBoxInput';
 
 const AddForm = styled.form`
   display: flex;
   width: 100%;
-  background-color: hsl(237, 14%, 26%);
-  height: 4.7rem;
+  margin-top: 4rem;
+  background-color: var(--task-color-dark);
+  height: 5.3rem;
   border-radius: 0.7rem;
   padding: 0 2rem;
   align-items: center;
+  transition: 0.2s;
 `;
-const CheckBoxInput = styled.input`
-  appearance: none;
-  height: 0;
-  padding: 1rem;
-  border-radius: 50%;
-  border: 1px solid grey;
-`;
-
 const AddTaskInput = styled.input`
-  ::placeholder {
-    font-family: "Josefin Sans" sans-serif;
-  }
+  color: var(--font-color);
+  font-family: 'Josefin Sans', sans-serif;
+  transition: 0.2s;
   flex-grow: 1;
   background-color: transparent;
-  color: var(--font-color);
   border: none;
   padding: 0.5rem;
-  font-size: 1.4rem;
-  border: 1px solid grey;
-  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.25rem;
+  margin-left: 10px;
 `;
 
-const AddTask = () => {
+const AddTask = ({ handleTask }) => {
+  const [AddTaskValue, setAddTaskValue] = useState('');
+  const handleCheck = () => {
+    if (AddTaskValue.length > 2 && AddTaskValue.length < 22) {
+      handleTask(AddTaskValue);
+      setAddTaskValue('');
+    } else {
+      console.log('task name is to short/long');
+    }
+  };
+  const handleInputValue = (e) => {
+    setAddTaskValue(e.target.value);
+  };
+  const handleForm = (e) => {
+    e.preventDefault();
+    if (AddTaskValue.length > 2 && AddTaskValue.length < 22) {
+      handleTask(AddTaskValue);
+      setAddTaskValue('');
+    } else {
+      console.log('task name is to short/long');
+    }
+  };
   return (
-    <AddForm>
-      <CheckBoxInput type="checkbox" />
-      <AddTaskInput type="text" placeholder="Create a new todo..." />
+    <AddForm onSubmit={handleForm}>
+      <CheckBoxLabel>
+        <CheckBoxInput type="checkbox" onClick={handleCheck} />
+      </CheckBoxLabel>
+      <AddTaskInput
+        type="text"
+        placeholder="Create a new todo..."
+        value={AddTaskValue}
+        onChange={handleInputValue}
+      />
     </AddForm>
   );
 };

@@ -1,21 +1,17 @@
-import React from "react";
+import React from 'react';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import AddTask from "./AddTask";
+import AddTask from './AddTask';
 
-import sun from "./assets/icon-sun.svg";
-import moon from "./assets/icon-moon.svg";
+import sun from './assets/icon-sun.svg';
+import moon from './assets/icon-moon.svg';
 
 const AddTaskWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-`;
-const InputMode = styled.input`
-  width: 1.7em;
-  height: 1.7em;
 `;
 const Title = styled.h1`
   color: white;
@@ -24,19 +20,29 @@ const Title = styled.h1`
   font-size: 2.8rem;
   text-transform: uppercase;
 `;
+const InputCheckBox = styled.input`
+  &:hover,
+  &:focus {
+    transform: rotate(${({ darkMode }) => (darkMode ? -60 + 'deg' : null)});
+  }
+  transition: 0.3s;
+  width: 1.6em;
+  height: 1.6em;
+`;
 
-const AddTaskSection = ({ darkMode, setDarkMode }) => {
+const AddTaskSection = ({ darkMode, setDarkMode, handleTask }) => {
   const handleInputClick = () => setDarkMode(!darkMode);
   return (
     <AddTaskWrapper>
       <Title>todo</Title>
-      <InputMode
+      <InputCheckBox
         onClick={handleInputClick}
+        darkMode={darkMode}
         type="image"
         src={`${darkMode ? sun : moon}`}
         alt="lightMode"
       />
-      <AddTask />
+      <AddTask handleTask={handleTask} />
     </AddTaskWrapper>
   );
 };

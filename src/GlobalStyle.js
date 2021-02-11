@@ -1,7 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,700;1,400&display=swap');
     *, *::before, *::after {
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
@@ -14,13 +13,20 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         font-size: 1.8rem;
+        font-family: 'Josefin Sans', sans-serif;
     }
     input:focus {
         outline: none; 
     }
     :root {
-        font-family: 'Josefin Sans', sans-serif;
-        --font-color: hsl(234, 39%, 85%);
+        --font-color: ${({ darkMode }) =>
+          darkMode ? 'hsl(234, 39%, 85%)' : 'hsl(235, 19%, 35%)'} ;
+        --color-hover: hsl(236, 33%, 92%);
+        --font-color-greyish: hsl(234, 11%, 52%);
+        --task-color-dark: ${({ darkMode }) =>
+          darkMode ? 'hsl(235, 24%, 19%)' : 'hsl(0, 0%, 98%)'}
+
+
     }
 `;
 export default GlobalStyle;
