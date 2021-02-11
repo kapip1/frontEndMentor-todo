@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -9,6 +9,8 @@ import GlobalStyle from './GlobalStyle';
 import ToDoList from './ToDoList';
 import Wrapper from './Wrapper';
 
+const LOCAL_STORAGE = 'TodoList';
+
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [tasks, setTasks] = useState([
@@ -18,6 +20,14 @@ const App = () => {
       active: true,
     },
   ]);
+
+  useEffect(() => {
+    const todosStorage = JSON.parse(localStorage.getItem(LOCAL_STORAGE));
+    if (todosStorage) setTasks(todosStorage);
+  }, []);
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE, JSON.stringify(tasks));
+  }, [tasks]);
   const handleTask = (name) => {
     const tasksCopy = [...tasks];
     const task = {

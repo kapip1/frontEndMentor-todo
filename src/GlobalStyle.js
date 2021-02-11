@@ -15,8 +15,11 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1.8rem;
         font-family: 'Josefin Sans', sans-serif;
     }
-    input:focus {
-        outline: none; 
+    input:focus, button:focus {
+        outline: none;
+    }
+    span, input, button {
+        cursor: pointer;
     }
     :root {
         --font-color: ${({ darkMode }) =>
