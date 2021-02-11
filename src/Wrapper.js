@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   transition: 0.4s;
   @media (min-width: 1440px) {
     background-image: url(${BannerDesktopLight});
+    background-size: 100vw 30rem;
   }
   ${({ darkMode }) =>
     darkMode

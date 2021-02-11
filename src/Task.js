@@ -22,6 +22,9 @@ const TaskName = styled.p`
   font-size: 1.5rem;
   order: 1;
   flex-grow: 8;
+  @media (min-width: 1440px) {
+    font-size: 1.95rem;
+  }
 `;
 const TaskInput = styled.input`
   appearance: none;

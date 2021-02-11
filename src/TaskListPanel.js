@@ -18,6 +18,9 @@ const Button = styled.button`
   &:focus {
     outline: none;
   }
+  @media (min-width: 1440px) {
+    font-size: 1.8rem;
+  }
 `;
 const PanelWrapper = styled.div`
   width: 100%;

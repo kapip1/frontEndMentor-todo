@@ -13,6 +13,9 @@ const TaskListInfoWrapper = styled.div`
   margin: 0 auto;
   padding: 0 2rem;
   border-radius: 0 0 0.7rem 0.7rem;
+  @media (min-width: 1440px) {
+    font-size: 1.45rem;
+  }
 `;
 const Button = styled.button`
   background-color: transparent;
@@ -21,6 +24,9 @@ const Button = styled.button`
   border: none;
   &:focus {
     outline: none;
+  }
+  @media (min-width: 1440px) {
+    font-size: 1.45rem;
   }
 `;
 

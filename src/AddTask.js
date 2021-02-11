@@ -25,6 +25,9 @@ const AddTaskInput = styled.input`
   padding: 0.5rem;
   font-size: 1.31rem;
   margin-left: 10px;
+  @media (min-width: 1440px) {
+    font-size: 1.6rem;
+  }
 `;
 
 const AddTask = ({ handleTask }) => {
