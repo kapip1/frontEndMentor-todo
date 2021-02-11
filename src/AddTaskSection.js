@@ -17,7 +17,7 @@ const Title = styled.h1`
   color: white;
   letter-spacing: 0.5em;
   font-weight: 700;
-  font-size: 2.8rem;
+  font-size: 3.1rem;
   text-transform: uppercase;
 `;
 const InputCheckBox = styled.input`

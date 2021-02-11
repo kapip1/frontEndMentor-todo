@@ -11,11 +11,15 @@ const TaskWrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  height: 5.3rem;
+  background-color: var(--task-color-dark);
+  height: 6.3rem;
+  vertical-align: baseline;
 `;
 const TaskName = styled.p`
   color: var(--font-color);
-  font-size: 1.25rem;
+  opacity: ${({ active }) => (active ? '1' : '0.3')};
+  text-decoration: ${({ active }) => (active ? null : 'line-through')};
+  font-size: 1.5rem;
   order: 1;
   flex-grow: 8;
 `;
@@ -91,7 +95,7 @@ const Task = ({ name, handleTaskRemove, id, handleTaskDone, active }) => {
   };
   return (
     <TaskWrapper>
-      <TaskName>{name}</TaskName>
+      <TaskName active={active}>{name}</TaskName>
       <TaskButton onClick={() => handleTaskRemove(id)}></TaskButton>
       <LabelTaskInput active={active}>
         <TaskInput

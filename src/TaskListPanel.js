@@ -3,10 +3,11 @@ import styled from 'styled-components';
 const Panel = styled.div`
   display: flex;
   width: 60%;
-  height: 5.3rem;
+  height: 6.3rem;
   justify-content: space-between;
   align-items: center;
-  margin: 20px auto 0 auto;
+  margin: 40px auto 0 auto;
+  background-color: var(--task-color-dark);
 `;
 const Button = styled.button`
   background-color: transparent;
@@ -17,6 +18,11 @@ const Button = styled.button`
   &:focus {
     outline: none;
   }
+`;
+const PanelWrapper = styled.div`
+  width: 100%;
+  background-color: var(--task-color-dark);
+  border-radius: 0.7rem;
 `;
 
 const TaskListPanel = ({ getRenderType, render }) => {
@@ -31,29 +37,31 @@ const TaskListPanel = ({ getRenderType, render }) => {
     }
   };
   return (
-    <Panel>
-      <Button
-        style={render === 0 ? { color: 'hsl(220, 98%, 61%)' } : null}
-        name="all"
-        onClick={handleBtnClick}
-      >
-        All
-      </Button>
-      <Button
-        name="active"
-        onClick={handleBtnClick}
-        style={render === 1 ? { color: 'hsl(220, 98%, 61%)' } : null}
-      >
-        Active
-      </Button>
-      <Button
-        name="completed"
-        onClick={handleBtnClick}
-        style={render === 2 ? { color: 'hsl(220, 98%, 61%)' } : null}
-      >
-        Completed
-      </Button>
-    </Panel>
+    <PanelWrapper>
+      <Panel>
+        <Button
+          style={render === 0 ? { color: 'hsl(220, 98%, 61%)' } : null}
+          name="all"
+          onClick={handleBtnClick}
+        >
+          All
+        </Button>
+        <Button
+          name="active"
+          onClick={handleBtnClick}
+          style={render === 1 ? { color: 'hsl(220, 98%, 61%)' } : null}
+        >
+          Active
+        </Button>
+        <Button
+          name="completed"
+          onClick={handleBtnClick}
+          style={render === 2 ? { color: 'hsl(220, 98%, 61%)' } : null}
+        >
+          Completed
+        </Button>
+      </Panel>
+    </PanelWrapper>
   );
 };
 export default TaskListPanel;

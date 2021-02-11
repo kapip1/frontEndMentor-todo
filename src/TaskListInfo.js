@@ -4,7 +4,7 @@ const TaskListInfoWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 2rem;
-  height: 5.3rem;
+  height: 6.3rem;
   align-items: center;
   background-color: var(--task-color-dark);
   width: 100%;
@@ -12,6 +12,7 @@ const TaskListInfoWrapper = styled.div`
   font-size: 1.1rem;
   margin: 0 auto;
   padding: 0 2rem;
+  border-radius: 0 0 0.7rem 0.7rem;
 `;
 const Button = styled.button`
   background-color: transparent;
@@ -23,11 +24,11 @@ const Button = styled.button`
   }
 `;
 
-const TaskListInfo = () => {
+const TaskListInfo = ({ handleTaskClear, length }) => {
   return (
     <TaskListInfoWrapper>
-      <span>{3} items left</span>
-      <Button>Clear Complited</Button>
+      <span>{length} items left</span>
+      <Button onClick={handleTaskClear}>Clear Complited</Button>
     </TaskListInfoWrapper>
   );
 };

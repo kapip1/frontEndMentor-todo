@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const ToDoList = styled.div`
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 91%;
   padding: 4rem 0;
-  max-width: 620px;
+  max-width: 720px;
   margin: 0 auto;
 `;
 export default ToDoList;

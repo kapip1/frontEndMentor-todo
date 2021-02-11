@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 
 import styled from 'styled-components';
 
-import { CheckBoxInput, CheckBoxLabel, CheckBoxMark } from './CheckBoxInput';
+import { CheckBoxInput, CheckBoxLabel } from './CheckBoxInput';
 
 const AddForm = styled.form`
   display: flex;
   width: 100%;
   margin-top: 4rem;
   background-color: var(--task-color-dark);
-  height: 5.3rem;
+  height: 6.3rem;
   border-radius: 0.7rem;
   padding: 0 2rem;
   align-items: center;
@@ -23,7 +23,7 @@ const AddTaskInput = styled.input`
   background-color: transparent;
   border: none;
   padding: 0.5rem;
-  font-size: 1.25rem;
+  font-size: 1.31rem;
   margin-left: 10px;
 `;
 

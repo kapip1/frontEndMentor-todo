@@ -24,7 +24,8 @@ const GlobalStyle = createGlobalStyle`
         --color-hover: hsl(236, 33%, 92%);
         --font-color-greyish: hsl(234, 11%, 52%);
         --task-color-dark: ${({ darkMode }) =>
-          darkMode ? 'hsl(235, 24%, 19%)' : 'hsl(0, 0%, 98%)'}
+          darkMode ? 'hsl(235, 24%, 19%)' : 'hsl(0, 0%, 98%)'};
+        --font-color-unactive: hsl(235, 24%, 19%, 0.1);
 
 
     }

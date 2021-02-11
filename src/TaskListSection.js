@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import styled from 'styled-components';
 
+import EmptyTask from './EmptyTask';
 import Task from './Task';
 import TaskListPanel from './TaskListPanel';
 import TaskListInfo from './TaskListInfo';
@@ -10,7 +11,7 @@ const TaskListWrapper = styled.div`
   margin-top: 2rem;
   border-radius: 0.7rem;
   width: 100%;
-  background-color: var(--task-color-dark);
+  overflow: hidden;
 `;
 
 const TaskListSection = ({
@@ -66,11 +67,11 @@ const TaskListSection = ({
     }
   };
   return (
-    <>
-      <TaskListWrapper>{renderList()}</TaskListWrapper>
-      <TaskListInfo />
+    <TaskListWrapper>
+      {renderList().length ? renderList() : <EmptyTask />}
+      <TaskListInfo handleTaskClear={handleTaskClear} length={active.length} />
       <TaskListPanel getRenderType={getRenderType} render={render} />
-    </>
+    </TaskListWrapper>
   );
 };
 export default TaskListSection;
